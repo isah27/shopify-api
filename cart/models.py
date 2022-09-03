@@ -17,7 +17,7 @@ class Cart(models.Model):
     price=models.TextField()
     category=models.CharField(max_length=200)
     rating=models.IntegerField(blank=True,null=True)
-    image=models.ImageField(max_length=250)
+    image=models.FileField(max_length=250)
     quantity=models.IntegerField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)

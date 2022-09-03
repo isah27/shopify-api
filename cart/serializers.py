@@ -11,7 +11,7 @@ class CartCreationSerializer(serializers.ModelSerializer):
     price=serializers.IntegerField()
     category=serializers.CharField(max_length=200)
     rating=serializers.IntegerField(allow_null=True)
-    image=serializers.ImageField(allow_null=True)
+    image=serializers.FileField(allow_null=True)
 
     class Meta:
         model=Cart

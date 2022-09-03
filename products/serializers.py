@@ -10,7 +10,7 @@ class ProductCreationSerializer(serializers.ModelSerializer):
     description=serializers.CharField()
     price=serializers.CharField()
     category=Category()
-    image=serializers.ImageField(required=False,allow_null=True)
+    image=serializers.FileField(required=False,allow_null=True)
 
     class Meta:
         model=Products
@@ -22,7 +22,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     description=serializers.CharField()
     price=serializers.CharField()
     category=Category()
-    image=serializers.ImageField(required=False,allow_null=True)
+    image=serializers.FileField(required=False,allow_null=True)
     
     class Meta:
         model=Products
