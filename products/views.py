@@ -19,7 +19,6 @@ class ProductCreateListView(generics.GenericAPIView):
     def get(self, request):
         product=Products.objects.all()
         serializer=self.serializer_class(instance=product,many=True)
-        serializer.validated_data["image"]=serializer.validated_data["image"].path
         return Response(data=serializer.data,status=status.HTTP_200_OK)
     
     @swagger_auto_schema(operation_summary="Add product")
@@ -38,7 +37,6 @@ class ProductDetailView(generics.GenericAPIView):
     def get(self, request,product_id):
         product=get_object_or_404(Products,pk=product_id)
         serializer=self.serializer_class(instance=product)
-        serializer.validated_data["image"]=serializer.validated_data["image"].path
         return Response(data=serializer.data,status=status.HTTP_200_OK)
         
     @swagger_auto_schema(operation_summary="Update product by id")
@@ -58,7 +56,7 @@ class ProductDetailView(generics.GenericAPIView):
                     serializer.save()
                     return Response(data=serializer.data,status=status.HTTP_200_OK)
                 # assign the previous image to incoming data if it doesn't have
-                serializer.validated_data["image"]=product.image
+                serializer.validated_data["image"]=product.image.path
                 # then save it
                 serializer.save()
                 return Response(data=serializer.data,status=status.HTTP_200_OK)
@@ -84,7 +82,6 @@ class UserProductView(generics.GenericAPIView):
         user=User.objects.get(pk=vendor_id)
         product=Products.objects.all().filter(vendor=user)
         serializer=self.serializer_class(instance=product,many=True)
-        serializer.validated_data["image"]=serializer.validated_data["image"].path
         return Response(data=serializer.data,status=status.HTTP_200_OK)
     
        
