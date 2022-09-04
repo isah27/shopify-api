@@ -1,8 +1,7 @@
-import email
 from .models import User
 from rest_framework import serializers
 from phonenumber_field.serializerfields import PhoneNumberField
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
 
 class UserCreationSerialiser(serializers.ModelSerializer):
     username=serializers.CharField(max_length=100)

@@ -25,7 +25,7 @@ urlpatterns = [
     path('orders/',include('orders.urls')),
     path('cart/',include('cart.urls')),
     path('ratings/', include('ratings.urls')),
-    path('auth/', include('djoser.urls.jwt')),
+   #  path('auth/', include('djoser.urls.jwt')),
     path('swagger<format>.json|.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('doc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

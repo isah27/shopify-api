@@ -24,7 +24,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
+    # "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,15 +46,16 @@ INSTALLED_APPS = [
     'djoser',
     'phonenumber_field',
     'drf_yasg',
+    'rest_framework_simplejwt',
     
 ]
 
 AUTH_USER_MODEL='authentication.User'
 REST_FRAMEWORK={
     'NON_FIELD_ERRORS_KEY':'error',
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES':(
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ),
 }
 
 SIMPLE_JWT = {

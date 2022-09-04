@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from rest_framework import generics,status
 from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import check_password
 from .models import User
 from . import serializers
 
