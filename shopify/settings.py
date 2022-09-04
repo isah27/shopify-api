@@ -113,7 +113,7 @@ WSGI_APPLICATION = 'shopify.wsgi.application'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 
 # URL used to access the media
-MEDIA_URL = '/images'
+MEDIA_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
