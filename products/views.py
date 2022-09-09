@@ -6,6 +6,7 @@ from rest_framework import generics,status
 from rest_framework.response import Response
 from . import serializers
 from .models import Products
+from django.http import HttpResponse
 
 User=get_user_model()
 # Create your views here.
@@ -36,8 +37,10 @@ class ProductDetailView(generics.GenericAPIView):
     @swagger_auto_schema(operation_summary="fetch product by id")
     def get(self, request,product_id):
         product=get_object_or_404(Products,pk=product_id)
-        serializer=self.serializer_class(instance=product)
-        return Response(data=serializer.data,status=status.HTTP_200_OK)
+        img=product.image.path
+        return HttpResponse(img)
+        # serializer=self.serializer_class(instance=product)
+        # return Response(data=serializer.data,status=status.HTTP_200_OK)
         
     @swagger_auto_schema(operation_summary="Update product by id")
     def put(self, request,product_id):
