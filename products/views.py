@@ -56,7 +56,7 @@ class ProductDetailView(generics.GenericAPIView):
                     serializer.save()
                     return Response(data=serializer.data,status=status.HTTP_200_OK)
                 # assign the previous image to incoming data if it doesn't have
-                serializer.validated_data["image"]=product.image.path
+                serializer.validated_data["image"]=product.image
                 # then save it
                 serializer.save()
                 return Response(data=serializer.data,status=status.HTTP_200_OK)
